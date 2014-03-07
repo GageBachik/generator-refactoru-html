@@ -79,7 +79,12 @@ var RefactoruHtmlGenerator = yeoman.generators.Base.extend({
     }
 
     if(this.props.js) {
-      this.write('main.js', '');
+      if(this.props.jquery) {
+        this.copy('main-jquery.js', 'main.js')
+      }
+      else {
+        this.write('main.js', '')
+      }
     }
   },
 });
