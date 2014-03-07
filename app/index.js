@@ -28,27 +28,36 @@ var RefactoruHtmlGenerator = yeoman.generators.Base.extend({
     var prompts = [
       {
         type: 'confirm',
-        name: 'css',
-        message: 'Would you like to include a css file? (Type desired filename or leave empty for none)',
-        default: 'main.css'
-      },
-      {
-        type: 'confirm',
-        name: 'js',
-        message: 'Would you like to include a javascript file? (Type desired filename or leave empty for none)',
-        default: 'main.js'
-      },
-      {
-        type: 'confirm',
         name: 'bootstrap',
-        message: 'Would you like to include Twitter Bootstrap?',
+        message: 'Twitter Bootstrap?',
         default: false
+      },
+      {
+        type: 'confirm',
+        name: 'normalize',
+        message: 'Normalize.css?',
+        default: true,
+        when: function(answers) {
+          return !answers.bootstrap;
+        }
+      },
+      {
+        type: 'confirm',
+        name: 'css',
+        message: 'Include a blank main.css?',
+        default: true
       },
       {
         type: 'confirm',
         name: 'jquery',
-        message: 'Would you like to include jQuery?',
+        message: 'jQuery?',
         default: false
+      },
+      {
+        type: 'confirm',
+        name: 'js',
+        message: 'Include a blank main.js file?',
+        default: true
       }
     ];
 
@@ -64,6 +73,14 @@ var RefactoruHtmlGenerator = yeoman.generators.Base.extend({
     // this.mkdir('app/templates');
 
     this.template('index.html', 'index.html');
+
+    if(this.props.css) {
+      this.write('main.css', '');
+    }
+
+    if(this.props.js) {
+      this.write('main.js', '');
+    }
   },
 });
 
