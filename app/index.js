@@ -72,7 +72,7 @@ var RefactoruHtmlGenerator = yeoman.generators.Base.extend({
     // this.mkdir('app');
     // this.mkdir('app/templates');
 
-    this.template('index.html', 'index.html');
+    this.template('index.html');
 
     if(this.props.css) {
       this.write('main.css', '');
