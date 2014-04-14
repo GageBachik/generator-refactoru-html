@@ -55,6 +55,12 @@ var RefactoruHtmlGenerator = yeoman.generators.Base.extend({
       },
       {
         type: 'confirm',
+        name: 'jasmine',
+        message: 'Jasmine tests?',
+        default: false
+      },
+      {
+        type: 'confirm',
         name: 'js',
         message: 'Include a blank main.js file?',
         default: true
@@ -85,6 +91,10 @@ var RefactoruHtmlGenerator = yeoman.generators.Base.extend({
       else {
         this.write('main.js', '')
       }
+    }
+
+    if(this.props.jasmine) {
+      this.directory('test', 'test');
     }
   },
 });
