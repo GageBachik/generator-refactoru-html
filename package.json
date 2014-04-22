@@ -1,6 +1,6 @@
 {
   "name": "generator-refactoru-html",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Yeoman generator for a simple HTML5 boilerplate.",
   "license": "ISC",
   "main": "app/index.js",
